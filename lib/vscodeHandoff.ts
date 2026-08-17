@@ -1,10 +1,6 @@
 import { randomBytes } from "crypto";
 import { createAdminClient } from "./supabase/admin";
 
-/** Tiene que coincidir con AUTH_REDIRECT_URL en src/auth/supabaseConfig.ts
- * de la extensión — VS Code enruta la URI de vuelta según el publisher. */
-export const VSCODE_AUTH_CALLBACK = "vscode://ScorpkDev.scorpk-agent/auth-callback";
-
 const HANDOFF_TTL_MS = 120_000;
 
 /** Crea un código de un solo uso que la extensión canjea por la sesión.
