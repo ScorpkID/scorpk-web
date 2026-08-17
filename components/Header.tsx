@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 
@@ -11,7 +12,7 @@ export async function Header() {
     <header className="border-b border-border">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center gap-2 font-mono text-[15px] font-semibold tracking-tight">
-          <span aria-hidden="true">🦂</span>
+          <Image src="/logo.png" alt="" width={24} height={24} className="rounded-full" priority />
           Scorpk
         </Link>
         <nav className="flex items-center gap-6 text-sm">
