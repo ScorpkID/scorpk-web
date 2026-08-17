@@ -1,14 +1,16 @@
 "use client";
 
-import { FormEvent, useState } from "react";
-import { useRouter } from "next/navigation";
+import { FormEvent, Suspense, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 
 type Mode = "signin" | "signup";
 
-export default function LoginPage() {
+function LoginForm() {
   const router = useRouter();
   const supabase = createClient();
+  const searchParams = useSearchParams();
+  const fromVscode = searchParams.get("from") === "vscode";
   const [mode, setMode] = useState<Mode>("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,13 +18,27 @@ export default function LoginPage() {
   const [error, setError] = useState<string | null>(null);
   const [info, setInfo] = useState<string | null>(null);
 
+  async function afterSignedIn() {
+    if (fromVscode) {
+      const res = await fetch("/api/vscode/handoff", { method: "POST" });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error ?? "No se pudo completar el login.");
+        setBusy(false);
+        return;
+      }
+      router.push(`/auth/vscode-done?handoff=${data.code}`);
+      return;
+    }
+    router.push("/account");
+    router.refresh();
+  }
+
   async function oauth(provider: "github" | "google") {
     setBusy(true);
     setError(null);
-    await supabase.auth.signInWithOAuth({
-      provider,
-      options: { redirectTo: `${window.location.origin}/auth/callback` },
-    });
+    const redirectTo = `${window.location.origin}/auth/callback${fromVscode ? "?from=vscode" : ""}`;
+    await supabase.auth.signInWithOAuth({ provider, options: { redirectTo } });
   }
 
   async function submit(e: FormEvent) {
@@ -39,8 +55,7 @@ export default function LoginPage() {
         setBusy(false);
         return;
       }
-      router.push("/account");
-      router.refresh();
+      await afterSignedIn();
     } else {
       const { data, error } = await supabase.auth.signUp({ email: email.trim(), password });
       if (error) {
@@ -53,15 +68,16 @@ export default function LoginPage() {
         setBusy(false);
         return;
       }
-      router.push("/account");
-      router.refresh();
+      await afterSignedIn();
     }
   }
 
   return (
     <section className="mx-auto flex w-full max-w-sm flex-1 flex-col justify-center px-6 py-16">
       <h1 className="mb-1 text-2xl font-semibold">{mode === "signin" ? "Iniciá sesión" : "Creá tu cuenta"}</h1>
-      <p className="mb-8 text-sm text-muted">Misma cuenta que usás en la extensión de VS Code.</p>
+      <p className="mb-8 text-sm text-muted">
+        {fromVscode ? "Iniciá sesión para volver a la extensión de VS Code." : "Misma cuenta que usás en la extensión de VS Code."}
+      </p>
 
       <div className="flex flex-col gap-2">
         <button
@@ -134,6 +150,14 @@ export default function LoginPage() {
         {mode === "signin" ? "¿No tenés cuenta? Creá una" : "¿Ya tenés cuenta? Iniciá sesión"}
       </button>
     </section>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense>
+      <LoginForm />
+    </Suspense>
   );
 }
 
