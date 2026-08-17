@@ -3,6 +3,8 @@
 import { FormEvent, Suspense, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
+import { resolveLoginTarget, LOGIN_TARGET_COOKIE } from "@/lib/loginTarget";
+import { VSCODE_AUTH_CALLBACK } from "@/lib/vscodeAuthCallback";
 
 type Mode = "signin" | "signup";
 
@@ -10,7 +12,10 @@ function LoginForm() {
   const router = useRouter();
   const supabase = createClient();
   const searchParams = useSearchParams();
-  const fromVscode = searchParams.get("from") === "vscode";
+  const from = searchParams.get("from");
+  const loginTarget = resolveLoginTarget(from, searchParams.get("callback"));
+  const fromVscode = loginTarget === VSCODE_AUTH_CALLBACK;
+  const fromCli = Boolean(loginTarget) && !fromVscode;
   const [mode, setMode] = useState<Mode>("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,7 +24,7 @@ function LoginForm() {
   const [info, setInfo] = useState<string | null>(null);
 
   async function afterSignedIn() {
-    if (fromVscode) {
+    if (loginTarget) {
       const res = await fetch("/api/vscode/handoff", { method: "POST" });
       const data = await res.json();
       if (!res.ok) {
@@ -27,7 +32,14 @@ function LoginForm() {
         setBusy(false);
         return;
       }
-      router.push(`/auth/vscode-done?handoff=${data.code}`);
+      if (fromVscode) {
+        router.push(`/auth/vscode-done?handoff=${data.code}`);
+      } else {
+        // El callback del CLI es un http://127.0.0.1 normal — no hace falta
+        // el paso intermedio que sí necesita vscode:// (esquema custom que
+        // el navegador no navega solo sin un click de por medio).
+        window.location.href = `${loginTarget}?handoff=${data.code}`;
+      }
       return;
     }
     router.push("/account");
@@ -37,12 +49,12 @@ function LoginForm() {
   async function oauth(provider: "github" | "google") {
     setBusy(true);
     setError(null);
-    if (fromVscode) {
+    if (loginTarget) {
       // El redirectTo tiene que matchear EXACTO contra la lista de Redirect
-      // URLs de Supabase, así que el flag no puede viajar ahí — va por
+      // URLs de Supabase, así que el destino no puede viajar ahí — va por
       // cookie, que sí sobrevive el viaje de ida y vuelta por el proveedor.
       const secure = window.location.protocol === "https:" ? "; secure" : "";
-      document.cookie = `scorpk_vscode_login=1; path=/; max-age=300; samesite=lax${secure}`;
+      document.cookie = `${LOGIN_TARGET_COOKIE}=${encodeURIComponent(loginTarget)}; path=/; max-age=300; samesite=lax${secure}`;
     }
     const redirectTo = `${window.location.origin}/auth/callback`;
     await supabase.auth.signInWithOAuth({ provider, options: { redirectTo } });
@@ -83,7 +95,11 @@ function LoginForm() {
     <section className="mx-auto flex w-full max-w-sm flex-1 flex-col justify-center px-6 py-16">
       <h1 className="mb-1 text-2xl font-semibold">{mode === "signin" ? "Iniciá sesión" : "Creá tu cuenta"}</h1>
       <p className="mb-8 text-sm text-muted">
-        {fromVscode ? "Iniciá sesión para volver a la extensión de VS Code." : "Misma cuenta que usás en la extensión de VS Code."}
+        {fromVscode
+          ? "Iniciá sesión para volver a la extensión de VS Code."
+          : fromCli
+            ? "Iniciá sesión para volver a la terminal."
+            : "Misma cuenta que usás en la extensión de VS Code y el CLI."}
       </p>
 
       <div className="flex flex-col gap-2">
