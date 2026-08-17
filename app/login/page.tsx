@@ -37,7 +37,14 @@ function LoginForm() {
   async function oauth(provider: "github" | "google") {
     setBusy(true);
     setError(null);
-    const redirectTo = `${window.location.origin}/auth/callback${fromVscode ? "?from=vscode" : ""}`;
+    if (fromVscode) {
+      // El redirectTo tiene que matchear EXACTO contra la lista de Redirect
+      // URLs de Supabase, así que el flag no puede viajar ahí — va por
+      // cookie, que sí sobrevive el viaje de ida y vuelta por el proveedor.
+      const secure = window.location.protocol === "https:" ? "; secure" : "";
+      document.cookie = `scorpk_vscode_login=1; path=/; max-age=300; samesite=lax${secure}`;
+    }
+    const redirectTo = `${window.location.origin}/auth/callback`;
     await supabase.auth.signInWithOAuth({ provider, options: { redirectTo } });
   }
 
