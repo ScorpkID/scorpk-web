@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# scorpk-web
 
-## Getting Started
+Sitio y cuentas de [Scorpk](https://github.com/ScorpkID/scorpk) — landing,
+precios, login (mismo Supabase que la extensión de VS Code) y cobros con
+Stripe (Checkout + Billing Portal).
 
-First, run the development server:
+## Stack
+
+- Next.js 16 (App Router) + React 19 + Tailwind CSS v4
+- Supabase (`@supabase/ssr`) — misma base que usa la extensión, cuenta única
+- Stripe — Checkout alojado, Billing Portal, y un webhook que sincroniza el
+  plan en la tabla `subscriptions`
+
+## Desarrollo local
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Copiá `.env.local.example` a `.env.local` y completá:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY` — mismos
+  valores que `src/auth/supabaseConfig.ts` en el repo de la extensión.
+- `SUPABASE_SERVICE_ROLE_KEY` — del dashboard de Supabase, solo se usa del
+  lado del servidor (`lib/supabase/admin.ts`), nunca se expone al cliente.
+- `STRIPE_SECRET_KEY` / `STRIPE_WEBHOOK_SECRET` / `NEXT_PUBLIC_STRIPE_PRICE_ID`
+  — del dashboard de Stripe (modo prueba mientras no haya lanzamiento). El
+  sitio compila y corre igual sin estas, pero los endpoints de `/api/stripe/*`
+  devuelven error hasta que estén.
+- `NEXT_PUBLIC_SITE_URL` — `http://localhost:3000` en desarrollo.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tabla `subscriptions`
 
-## Learn More
+Se crea a mano en el SQL Editor de Supabase (no vive en este repo). Solo el
+webhook de Stripe, usando la service_role key, puede escribir en ella — ni
+el usuario ni la extensión pueden otorgarse Pro llamando al cliente
+directo.
 
-To learn more about Next.js, take a look at the following resources:
+## Estructura
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `app/` — páginas y route handlers (App Router)
+- `app/api/stripe/` — checkout, billing portal, webhook
+- `lib/supabase/` — clientes de browser, server component y admin
+  (service_role)
+- `lib/stripe.ts` — SDK de Stripe, instanciado recién al primer uso para no
+  romper el build mientras falten las claves
+- `proxy.ts` — refresca la sesión de Supabase en cada request
