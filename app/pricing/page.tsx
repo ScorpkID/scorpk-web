@@ -30,6 +30,9 @@ export default function PricingPage() {
           Todo lo que no le cuesta nada a Scorpk queda gratis para siempre. Lo Pro es lo que
           organiza un flujo de trabajo serio.
         </p>
+        <p className="mx-auto mt-2 max-w-md text-sm text-faint">
+          Tu plan vale para la extensión de VS Code y el CLI — misma cuenta, un solo lugar donde pagar.
+        </p>
       </div>
 
       <div className="overflow-x-auto rounded-xl border border-border">
