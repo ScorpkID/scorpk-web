@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.scorpk.assistant",
+      "sha256_cert_fingerprints": [
+        "61:76:FA:64:A6:09:EB:56:35:88:6A:48:D3:CE:1E:86:19:78:44:18:A1:B7:61:21:15:49:E3:B4:64:C2:72:36"
+      ]
+    }
+  }
+]
