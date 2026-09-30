@@ -1,14 +1,14 @@
 {
-  "versionCode": 3,
-  "versionName": "1.1.1",
-  "minSupportedVersionCode": 1,
-  "apkUrl": "https://github.com/ScorpkID/scorpk-web/releases/download/android-v1.1.1/scorpk-assistant-1.1.1.apk",
-  "sha256": "f6e4fa49b7f073c68861cdabcaed147ba7cc7e98712c35b7043423acdeaae6bb",
-  "sizeBytes": 57766258,
+  "versionCode": 4,
+  "versionName": "1.1.2",
+  "minSupportedVersionCode": 4,
+  "apkUrl": "https://github.com/ScorpkID/scorpk-web/releases/download/android-v1.1.2/scorpk-assistant-1.1.2.apk",
+  "sha256": "c339d1818de0f3a0c679d05a9808de5d77970729352d2fd55c9506d0b9570427",
+  "sizeBytes": 57782642,
   "releasedAt": "2026-09-30",
   "notes": [
-    "La IA del asistente pasa a ser parte del plan Pro; los comandos locales siguen siendo gratis",
-    "Tarjeta de plan en Cuenta con acceso directo a Pro",
-    "Instalación y actualizaciones más claras"
+    "Chat más natural: confirmaciones más humanas y tarjetas con ícono para cada acción",
+    "Resultados de agenda, correo y archivos en tarjetas ordenadas, con enlaces pulsables",
+    "Las actualizaciones ahora son obligatorias para seguir usando la app"
   ]
 }
