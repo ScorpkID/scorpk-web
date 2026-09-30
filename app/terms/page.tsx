@@ -218,6 +218,11 @@ const SECTIONS: LegalSection[] = [
           Podemos modificar, suspender o discontinuar funciones, con aviso cuando sea razonable.
         </p>
         <p>
+          La app Android ofrece actualizaciones dentro de la propia aplicación. Algunas versiones antiguas pueden dejar de
+          funcionar y requerir que usted actualice para seguir usando el Servicio; la instalación siempre necesita su
+          confirmación en Android.
+        </p>
+        <p>
           Podemos suspender o cerrar una cuenta que incumpla estos términos o ponga en riesgo la seguridad del Servicio o de
           otros usuarios. Usted puede dejar de usar el Servicio y solicitar el cierre de su cuenta cuando quiera; al
           hacerlo, se aplicará lo descrito en la Política de privacidad sobre conservación y eliminación de datos.

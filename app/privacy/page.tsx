@@ -44,6 +44,10 @@ const PERMISSIONS: [string, string][] = [
     "Mostrar el aviso persistente mientras la escucha de «Oye Scorpk» está activa, que usted puede desactivar en Configuración.",
   ],
   [
+    "Instalar aplicaciones",
+    "Instalar las actualizaciones de Scorpk que la propia app descarga desde scorpk.tech. Android le pide confirmación cada vez y solo acepta paquetes firmados con la misma llave de Scorpk. Nunca se usa para instalar otras aplicaciones.",
+  ],
+  [
     "Lista de aplicaciones instaladas, alarmas e internet",
     "Abrir aplicaciones por su nombre, programar alarmas y temporizadores, y comunicarse con los servicios descritos en esta política.",
   ],
@@ -107,6 +111,11 @@ const SECTIONS: LegalSection[] = [
             Registros técnicos de las solicitudes (dirección IP, tipo de navegador, errores) que genera el proveedor de
             alojamiento por seguridad y diagnóstico.
           </li>
+          <li>
+            Comprobación de actualizaciones: al abrirse, la app Android consulta un archivo público de scorpk.tech
+            (<code>/android/latest.json</code>) para saber si hay una versión nueva. No envía datos personales; el
+            servidor puede registrar la dirección IP de la solicitud como cualquier otra visita.
+          </li>
         </ul>
 
         <h3>Datos de la app Android</h3>
@@ -124,7 +133,10 @@ const SECTIONS: LegalSection[] = [
         <p>
           Para responder, el texto de sus órdenes y mensajes, el historial reciente de la conversación (hasta 10
           mensajes) y los archivos, imágenes, capturas de pantalla o fotos que usted adjunte o active expresamente se
-          envían al proveedor de inferencia de IA (ver «Con quién compartimos los datos»). Si continúa una
+          envían al proveedor de inferencia de IA (ver «Con quién compartimos los datos»). En la app Android estas
+          peticiones viajan a través de los servidores de Scorpk (scorpk.tech), que las reenvían a ese proveedor con una
+          clave guardada en el servidor y las identifican con su sesión; Scorpk no guarda ni registra el contenido de
+          esas peticiones ni de las respuestas. Si continúa una
           conversación, también viajan los mensajes previos de esa conversación, que es lo que permite responder con
           contexto.
         </p>
@@ -173,8 +185,9 @@ const SECTIONS: LegalSection[] = [
         </p>
         <ul>
           <li>
-            <code>drive.readonly</code>: buscar archivos por nombre y listar sus archivos más recientes (nombre, tipo,
-            fecha y enlace).
+            <code>drive.metadata.readonly</code>: buscar archivos por nombre y listar sus archivos más recientes
+            (nombre, tipo, fecha y enlace). Scorpk solo lee estos metadatos: nunca descarga ni lee el contenido de sus
+            archivos.
           </li>
           <li>
             <code>gmail.readonly</code>: contar los correos sin leer y mostrar el remitente y el asunto de los más
@@ -248,7 +261,7 @@ const SECTIONS: LegalSection[] = [
           </li>
           <li>
             <strong>Fireworks AI:</strong> inferencia de los modelos de IA de la app Android (órdenes, historial reciente y
-            las imágenes o archivos que usted adjunte).
+            las imágenes o archivos que usted adjunte), recibidos a través de los servidores de Scorpk.
           </li>
           <li>
             <strong>Proveedores de IA que usted elige</strong> en la extensión y el CLI (por ejemplo OpenAI, Anthropic,
@@ -279,6 +292,11 @@ const SECTIONS: LegalSection[] = [
         <p>Aplicamos medidas técnicas y organizativas razonables para proteger los datos:</p>
         <ul>
           <li>Comunicaciones cifradas con HTTPS.</li>
+          <li>
+            Las actualizaciones de la app Android se descargan por HTTPS, se verifican con su huella SHA-256 y solo se
+            instalan si están firmadas con la misma llave que la app ya instalada.
+          </li>
+          <li>La app publicada no contiene claves de proveedores de IA: se guardan únicamente en el servidor.</li>
           <li>
             En Android, la sesión y los tokens de los conectores se cifran con AES-256-GCM usando una clave no exportable
             del Android Keystore.

@@ -22,6 +22,9 @@ export async function Header() {
           >
             Extensión
           </a>
+          <Link href="/assistant" className="text-muted hover:text-foreground transition-colors">
+            Asistente
+          </Link>
           <Link href="/cli" className="text-muted hover:text-foreground transition-colors">
             CLI
           </Link>

@@ -33,5 +33,9 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)"],
+  matcher: [
+    // Se excluyen los archivos que consulta la app Android (assetlinks, latest.json) y su API de IA,
+    // que se autentica con Bearer: no necesitan refrescar cookies de sesión.
+    "/((?!_next/static|_next/image|favicon.ico|\\.well-known|android/|api/ai/|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
+  ],
 };

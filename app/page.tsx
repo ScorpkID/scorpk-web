@@ -17,20 +17,28 @@ const CAPABILITIES = [
     title: "Vos decidís cuánto control cede",
     body: "Aprobás cada cambio uno por uno o dejás que corra automático — y revertís cualquier mensaje a como estaban los archivos antes, con un click.",
   },
+  {
+    title: "Asistente de voz en Android",
+    body: "Decí «Oye Scorpk» desde cualquier pantalla: abre apps, ajusta el volumen, programa alarmas, lee lo que hay en pantalla y te responde con voz natural.",
+  },
+  {
+    title: "Conectado a tus servicios",
+    body: "Spotify, Google Calendar, Drive, Gmail, GitHub, WhatsApp, Maps y YouTube: conectalos una vez y pedí lo que necesites por voz o por chat.",
+  },
 ];
 
 export default function Home() {
   return (
     <>
       <section className="mx-auto flex max-w-5xl flex-col gap-6 px-6 pt-20 pb-16 sm:pt-28">
-        <p className="font-mono text-[13px] tracking-wide text-accent uppercase">Agentes de IA para programar</p>
+        <p className="font-mono text-[13px] tracking-wide text-accent uppercase">Agentes de IA</p>
         <h1 className="max-w-2xl text-4xl font-semibold leading-[1.1] tracking-tight text-balance sm:text-5xl">
-          Un agente de IA que de verdad trabaja en tu proyecto.
+          IA que de verdad hace cosas: en tu código y en tu celular.
         </h1>
         <p className="max-w-xl text-lg leading-relaxed text-muted">
-          Scorpk hace lo que vos harías: lee tu código, lo edita, corre comandos, y te muestra cada
-          cambio antes de aplicarlo. Con el proveedor de IA que ya usás, o sin pegar ninguna key para
-          arrancar — en VS Code o directo en tu terminal.
+          Scorpk lee y edita tu proyecto en VS Code o en la terminal, mostrándote cada cambio antes de aplicarlo. Y en
+          Android es un asistente de voz que abre apps, agenda, revisa tu correo y controla tu música. Con el
+          proveedor de IA que ya usás, o sin pegar ninguna key para arrancar.
         </p>
         <div className="flex flex-wrap items-center gap-3 pt-2">
           <a
@@ -40,20 +48,24 @@ export default function Home() {
             Instalar en VS Code
           </a>
           <Link
-            href="/cli"
+            href="/assistant"
             className="rounded-full border border-border-strong px-6 py-3 text-sm font-medium hover:bg-surface-2 transition-colors"
           >
-            Usar desde la terminal
+            Descargar para Android
           </Link>
         </div>
         <p className="pt-1 font-mono text-xs text-faint">
           Disponible en{" "}
           <a href="https://marketplace.visualstudio.com/items?itemName=ScorpkDev.scorpk-agent" className="text-muted hover:text-foreground transition-colors">
             VS Code
-          </a>{" "}
-          y en{" "}
+          </a>
+          , en{" "}
           <Link href="/cli" className="text-muted hover:text-foreground transition-colors">
             la terminal
+          </Link>{" "}
+          y en{" "}
+          <Link href="/assistant" className="text-muted hover:text-foreground transition-colors">
+            Android
           </Link>
           , misma cuenta y mismo plan.
         </p>
@@ -61,8 +73,8 @@ export default function Home() {
 
       <section className="border-t border-border bg-surface">
         <div className="mx-auto max-w-5xl px-6 py-16 sm:px-10">
-          <h2 className="mb-8 font-mono text-[13px] uppercase tracking-wide text-muted">Dos productos, una cuenta</h2>
-          <div className="grid gap-6 sm:grid-cols-2">
+          <h2 className="mb-8 font-mono text-[13px] uppercase tracking-wide text-muted">Tres productos, una cuenta</h2>
+          <div className="grid gap-6 sm:grid-cols-3">
             <div className="flex flex-col rounded-xl border border-border p-6">
               <h3 className="mb-1 text-lg font-semibold">Extensión de VS Code</h3>
               <p className="mb-6 flex-1 text-[15px] leading-relaxed text-muted">
@@ -87,6 +99,16 @@ export default function Home() {
                 Ver el CLI →
               </Link>
             </div>
+            <div className="flex flex-col rounded-xl border border-border p-6">
+              <h3 className="mb-1 text-lg font-semibold">Scorpk Asistente</h3>
+              <p className="mb-6 flex-1 text-[15px] leading-relaxed text-muted">
+                Tu asistente de voz en Android: «Oye Scorpk» desde cualquier pantalla, conectado a tu música,
+                agenda, correo y más. Incluido en Pro.
+              </p>
+              <Link href="/assistant" className="text-sm font-medium text-accent hover:opacity-80 transition-opacity">
+                Descargar para Android →
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -106,7 +128,7 @@ export default function Home() {
         <h2 className="mb-3 text-2xl font-semibold text-balance">Empezá gratis, sin tarjeta.</h2>
         <p className="mx-auto mb-8 max-w-md text-muted">
           El chat individual con tu propio proveedor es gratis para siempre, en la extensión y en el
-          CLI. Modo equipo y MCP son parte de Pro.
+          CLI. Modo equipo, MCP y Scorpk Asistente para Android son parte de Pro.
         </p>
         <Link
           href="/pricing"

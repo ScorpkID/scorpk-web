@@ -9,6 +9,7 @@ const ROWS: [string, boolean | string, boolean | string][] = [
   ["Archivos, búsqueda, git, terminal, diagnósticos", true, true],
   ["Historial y checkpoints locales", true, true],
   ["Modo equipo (varios agentes en pipeline)", false, true],
+  ["Scorpk Asistente para Android (voz, chat y conectores)", false, true],
   ["Servidores MCP", false, true],
   ["Agentes y comandos rápidos personalizados", "Hasta 3", "Ilimitados"],
   ["Sincronización entre dispositivos", false, true],
@@ -31,7 +32,7 @@ export default function PricingPage() {
           organiza un flujo de trabajo serio.
         </p>
         <p className="mx-auto mt-2 max-w-md text-sm text-faint">
-          Tu plan vale para la extensión de VS Code y el CLI — misma cuenta, un solo lugar donde pagar.
+          Tu plan vale para la extensión de VS Code, el CLI y Scorpk Asistente para Android — misma cuenta, un solo lugar donde pagar.
         </p>
       </div>
 

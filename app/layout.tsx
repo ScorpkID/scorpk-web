@@ -16,11 +16,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Scorpk — agentes de IA para programar",
+    default: "Scorpk — agentes de IA en tu editor, tu terminal y tu celular",
     template: "%s · Scorpk",
   },
   description:
-    "Scorpk es un centro de control de agentes de IA para programar dentro de VS Code: multi-proveedor, multiagente, con acceso real al editor.",
+    "Scorpk es un ecosistema de agentes de IA: en VS Code y en la terminal para programar, y en Android como asistente de voz que controla tu teléfono y tus servicios.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

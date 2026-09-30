@@ -1,0 +1,14 @@
+{
+  "versionCode": 2,
+  "versionName": "1.1.0",
+  "minSupportedVersionCode": 1,
+  "apkUrl": "https://github.com/ScorpkID/scorpk-web/releases/download/android-v1.1.0/scorpk-assistant-1.1.0.apk",
+  "sha256": "0d359cca95fa027c48f5a988d9a0b475f640bdc1c048e3374cef8fbb8abd6af8",
+  "sizeBytes": 57766254,
+  "releasedAt": "2026-09-30",
+  "notes": [
+    "Nuevo asistente flotante «Oye Scorpk» con voz, texto, pantalla y cámara",
+    "Conectores: Spotify, Calendar, Drive, Gmail, GitHub, WhatsApp y más",
+    "Actualizaciones directas desde la app"
+  ]
+}
