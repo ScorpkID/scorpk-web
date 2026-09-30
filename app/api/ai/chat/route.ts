@@ -30,6 +30,16 @@ const MAX_BODY_CHARS = 8_000_000;
 const RATE_LIMIT_PER_MINUTE = 30;
 const UPSTREAM_TIMEOUT_MS = 70_000;
 
+/** Correos con acceso Pro sin suscripción (AI_PRO_EMAILS="a@x.com,b@y.com"), para el equipo y pruebas. */
+function isProEmail(email: string | undefined): boolean {
+  if (!email) return false;
+  const allowed = (process.env.AI_PRO_EMAILS ?? "")
+    .split(",")
+    .map((item) => item.trim().toLowerCase())
+    .filter(Boolean);
+  return allowed.includes(email.toLowerCase());
+}
+
 function json(body: unknown, status: number) {
   return NextResponse.json(body, { status, headers: { "Cache-Control": "no-store" } });
 }
@@ -58,8 +68,9 @@ export async function POST(request: NextRequest) {
     return json({ error: { message: "Sesión inválida o vencida." } }, 401);
   }
 
-  // 2) Plan: si AI_REQUIRE_PRO=true, solo suscriptores Pro activos.
-  if (process.env.AI_REQUIRE_PRO === "true") {
+  // 2) Plan: la IA es parte de Pro. Pasan los suscriptores activos y los correos de AI_PRO_EMAILS
+  //    (equipo y pruebas). AI_REQUIRE_PRO=false desactiva la restricción por completo.
+  if (process.env.AI_REQUIRE_PRO !== "false" && !isProEmail(user.email)) {
     const { data: subscription } = await createAdminClient()
       .from("subscriptions")
       .select("plan, status")

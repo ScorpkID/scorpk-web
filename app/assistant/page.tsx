@@ -26,8 +26,8 @@ const FEATURES = [
     body: "Responde en español con la mejor voz disponible en tu dispositivo, sin leer símbolos ni enlaces en voz alta.",
   },
   {
-    title: "Modelos a elegir",
-    body: "Cambiá entre modelos de IA desde el chat, con visión para analizar capturas de pantalla, fotos y archivos.",
+    title: "IA con modelos a elegir (Pro)",
+    body: "Con Pro, hablale con lenguaje natural y cambiá entre modelos de IA desde el chat, con visión para analizar capturas de pantalla, fotos y archivos.",
   },
   {
     title: "Se actualiza sola",
@@ -38,7 +38,7 @@ const FEATURES = [
 const STEPS = [
   "Descargá el APK con el botón de arriba.",
   "Abrilo. Si Android pregunta, permití instalar apps desde esta fuente (el navegador o el gestor de archivos).",
-  "Iniciá sesión con tu cuenta de Scorpk, la misma de la extensión y el CLI.",
+  "Iniciá sesión con tu cuenta de Scorpk, la misma de la extensión y el CLI. Con Pro se activa la IA.",
   "En Configuración activá «Oye Scorpk» y conectá los servicios que quieras.",
 ];
 
@@ -65,7 +65,7 @@ export default function AssistantPage() {
         </h1>
         <p className="max-w-xl text-lg leading-relaxed text-muted">
           Hablale con <span className="text-foreground">«Oye Scorpk»</span> y pedile que abra apps, ponga tu música,
-          agende un evento, revise tu correo o te cuente qué hay en pantalla. Incluido en Scorpk Pro.
+          agende un evento, revise tu correo o te cuente qué hay en pantalla. La app es gratis; la IA es parte de Scorpk Pro.
         </p>
         <div className="flex flex-wrap items-center gap-3 pt-2">
           <a
@@ -82,7 +82,8 @@ export default function AssistantPage() {
           </Link>
         </div>
         <p className="pt-1 font-mono text-xs text-faint">
-          Acceso anticipado: por ahora la descarga está abierta a todos. Requiere Android 8.1 o superior.
+          Gratis: comandos por voz y texto, «Oye Scorpk» y conectores. Pro: IA con lenguaje natural, chat con modelos y
+          visión de pantalla y cámara. Requiere Android 8.1 o superior.
         </p>
       </section>
 
@@ -108,8 +109,9 @@ export default function AssistantPage() {
           ))}
         </ol>
         <p className="mt-4 text-sm text-faint">
-          Android puede mostrar un aviso de Play Protect al instalar apps de fuera de la tienda: es normal. Las
-          versiones siguientes se descargan e instalan desde la propia app.
+          Si tu celular bloquea la instalación, casi siempre es Google Play Protect (o el Bloqueador automático en
+          Samsung): desactívalo un momento en Ajustes → Seguridad, instalá la app y volvelo a activar. Las versiones
+          siguientes se descargan e instalan desde la propia app.
         </p>
       </section>
 

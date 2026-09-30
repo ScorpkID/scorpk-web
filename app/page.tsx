@@ -103,7 +103,7 @@ export default function Home() {
               <h3 className="mb-1 text-lg font-semibold">Scorpk Asistente</h3>
               <p className="mb-6 flex-1 text-[15px] leading-relaxed text-muted">
                 Tu asistente de voz en Android: «Oye Scorpk» desde cualquier pantalla, conectado a tu música,
-                agenda, correo y más. Incluido en Pro.
+                agenda, correo y más. La app es gratis; la IA es parte de Pro.
               </p>
               <Link href="/assistant" className="text-sm font-medium text-accent hover:opacity-80 transition-opacity">
                 Descargar para Android →
@@ -128,7 +128,7 @@ export default function Home() {
         <h2 className="mb-3 text-2xl font-semibold text-balance">Empezá gratis, sin tarjeta.</h2>
         <p className="mx-auto mb-8 max-w-md text-muted">
           El chat individual con tu propio proveedor es gratis para siempre, en la extensión y en el
-          CLI. Modo equipo, MCP y Scorpk Asistente para Android son parte de Pro.
+          CLI, y la app Android con comandos por voz también. Modo equipo, MCP y la IA del asistente son parte de Pro.
         </p>
         <Link
           href="/pricing"

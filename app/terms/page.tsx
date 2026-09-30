@@ -175,6 +175,11 @@ const SECTIONS: LegalSection[] = [
             pagar.
           </li>
           <li>
+            En la app Android, los comandos locales, «Oye Scorpk» y los conectores son gratuitos; las funciones de IA
+            (lenguaje natural, chat con modelos y visión de pantalla y cámara) forman parte del plan Pro y requieren
+            iniciar sesión. Podemos ajustar qué incluye cada plan avisando con antelación razonable.
+          </li>
+          <li>
             La suscripción se renueva automáticamente cada período hasta que se cancele. Puede cancelarla en cualquier
             momento desde el portal de facturación de <Link href="/account">su cuenta</Link>; conservará el acceso Pro
             hasta el final del período ya pagado.
