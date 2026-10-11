@@ -1,0 +1,16 @@
+{
+  "version": "0.1.0",
+  "versionCode": 1,
+  "minSupportedVersion": "0.1.0",
+  "downloadUrl": "https://github.com/ScorpkID/scorpk-web/releases/download/windows-v0.1.0/Scorpk_0.1.0_x64-setup.exe",
+  "sha256": "a590a67231ef50f4b652005a7f5a3dd1bada1aea74d3dc0de04bc8b8f0d09118",
+  "sizeBytes": 3554889,
+  "releasedAt": "2026-10-11",
+  "notes": [
+    "Primera versión oficial de Scorpk para Windows",
+    "Asistente de IA y chat flotante con atajo global Ctrl+Alt+Espacio",
+    "Control completo de televisores Samsung (Tizen) vía Wake-on-LAN y WebSocket",
+    "Control de volumen, apps del PC, multimedia y temporizadores",
+    "Reconocimiento de voz sin conexión con modelo en español"
+  ]
+}

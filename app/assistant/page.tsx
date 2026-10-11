@@ -1,45 +1,50 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import latest from "@/public/android/latest.json";
+import androidLatest from "@/public/android/latest.json";
+import windowsLatest from "@/public/windows/latest.json";
 
 export const metadata: Metadata = {
-  title: "Scorpk Asistente para Android",
+  title: "Scorpk Asistente para Windows y Android",
   description:
-    "El asistente de IA de Scorpk para tu celular: háblale con «Oye Scorpk», controla tu música, agenda, correo y apps. Descarga el APK oficial.",
+    "El asistente de IA de Scorpk para tu PC y tu celular: háblale con «Oye Scorpk», controla programas, música, televisión Samsung y servicios. Descarga el instalador oficial.",
 };
 
-const FEATURES = [
+const WINDOWS_FEATURES = [
   {
-    title: "«Oye Scorpk», desde cualquier pantalla",
-    body: "Una tarjeta flotante con luz en los bordes aparece sobre lo que estés haciendo: hablale, escribile, o mostrale la pantalla o la cámara. La detección de la frase ocurre en tu teléfono.",
+    title: "Atajo global y ventana flotante",
+    body: "Pulsa Ctrl+Alt+Espacio desde cualquier juego o programa para abrir el asistente transparente sin interrumpir lo que haces.",
   },
   {
-    title: "Conectores reales",
-    body: "Spotify, Google Calendar, Drive, Gmail, GitHub, WhatsApp, Maps y YouTube. Conectalos una vez y pedí cosas como «¿qué tengo mañana?» o «poné algo de lo-fi».",
+    title: "Control de TV Samsung (Tizen)",
+    body: "Enciende la tele por Wake-on-LAN, cambia a HDMI, abre Netflix o YouTube, y ajusta el volumen directamente con tu voz.",
   },
   {
-    title: "Controla tu teléfono",
-    body: "Abre apps, ajusta el volumen, activa la linterna, programa alarmas, lee lo que hay en pantalla y pulsa botones por vos, con el servicio de accesibilidad que vos activás.",
+    title: "Voz sin conexión (Vosk)",
+    body: "Detección offline de «Oye Scorpk» procesada completamente en tu equipo para máxima velocidad y total privacidad.",
   },
   {
-    title: "Voz natural",
-    body: "Responde en español con la mejor voz disponible en tu dispositivo, sin leer símbolos ni enlaces en voz alta.",
-  },
-  {
-    title: "IA con modelos a elegir (Pro)",
-    body: "Con Pro, hablale con lenguaje natural y cambiá entre modelos de IA desde el chat, con visión para analizar capturas de pantalla, fotos y archivos.",
-  },
-  {
-    title: "Se actualiza sola",
-    body: "Cuando hay una versión nueva, la app te avisa y la descarga e instala sin salir de ella ni pasar por el navegador.",
+    title: "Control total del PC",
+    body: "Abre programas instalados, ajusta el volumen maestro, controla Spotify y reproducción multimedia, y programa temporizadores.",
   },
 ];
 
-const STEPS = [
-  "Descargá el APK con el botón de arriba.",
-  "Abrilo. Si Android pregunta, permití instalar apps desde esta fuente (el navegador o el gestor de archivos).",
-  "Iniciá sesión con tu cuenta de Scorpk, la misma de la extensión y el CLI. Con Pro se activa la IA.",
-  "En Configuración activá «Oye Scorpk» y conectá los servicios que quieras.",
+const ANDROID_FEATURES = [
+  {
+    title: "«Oye Scorpk», desde cualquier pantalla",
+    body: "Una tarjeta flotante con luz en los bordes aparece sobre lo que estés haciendo: háblale, escríbele o muéstrale la pantalla.",
+  },
+  {
+    title: "Conectores reales",
+    body: "Spotify, Google Calendar, Drive, Gmail, GitHub, WhatsApp, Maps y YouTube. Conéctalos una vez y pide lo que necesites.",
+  },
+  {
+    title: "Controla tu teléfono",
+    body: "Abre apps, ajusta el volumen, activa la linterna, programa alarmas y lee la pantalla con el servicio de accesibilidad.",
+  },
+  {
+    title: "IA multimodal con modelos Pro",
+    body: "Conversa con lenguaje natural y cambia entre modelos de IA desde el chat, con visión para fotos y capturas.",
+  },
 ];
 
 function formatSize(bytes: number): string {
@@ -59,96 +64,149 @@ export default function AssistantPage() {
   return (
     <>
       <section className="mx-auto flex max-w-5xl flex-col gap-6 px-6 pt-20 pb-12 sm:pt-28">
-        <p className="font-mono text-[13px] tracking-wide text-accent uppercase">Scorpk Asistente · Android</p>
-        <h1 className="max-w-2xl text-4xl font-semibold leading-[1.1] tracking-tight text-balance sm:text-5xl">
-          Tu asistente de IA, en tu celular.
+        <p className="font-mono text-[13px] tracking-wide text-accent uppercase">Scorpk Asistente · Windows & Android</p>
+        <h1 className="max-w-3xl text-4xl font-semibold leading-[1.1] tracking-tight text-balance sm:text-5xl">
+          Tu asistente de IA, en tu PC y en tu celular.
         </h1>
-        <p className="max-w-xl text-lg leading-relaxed text-muted">
-          Hablale con <span className="text-foreground">«Oye Scorpk»</span> y pedile que abra apps, ponga tu música,
-          agende un evento, revise tu correo o te cuente qué hay en pantalla. La app es gratis; la IA es parte de Scorpk Pro.
+        <p className="max-w-2xl text-lg leading-relaxed text-muted">
+          Háblale con <span className="text-foreground">«Oye Scorpk»</span> para abrir programas, controlar tu música,
+          manejar tu televisor Samsung, revisar tu agenda o consultar con los mejores modelos de IA.
         </p>
-        <div className="flex flex-wrap items-center gap-3 pt-2">
+
+        {/* Botones de Descarga */}
+        <div className="flex flex-wrap items-center gap-4 pt-4">
           <a
-            href={latest.apkUrl}
-            className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-ink hover:opacity-90 transition-opacity"
+            href={windowsLatest.downloadUrl}
+            className="flex items-center gap-2.5 rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-accent-ink hover:opacity-90 transition-opacity shadow-lg shadow-accent/20"
           >
-            Descargar APK · v{latest.versionName} · {formatSize(latest.sizeBytes)}
+            <span>🪟</span>
+            <span>Descargar para Windows · v{windowsLatest.version} ({formatSize(windowsLatest.sizeBytes)})</span>
           </a>
+
+          <a
+            href={androidLatest.apkUrl}
+            className="flex items-center gap-2.5 rounded-full border border-border-strong bg-surface px-6 py-3.5 text-sm font-semibold hover:bg-surface-2 transition-colors"
+          >
+            <span>📱</span>
+            <span>Descargar APK Android · v{androidLatest.versionName} ({formatSize(androidLatest.sizeBytes)})</span>
+          </a>
+
           <Link
             href="/pricing"
-            className="rounded-full border border-border-strong px-6 py-3 text-sm font-medium hover:bg-surface-2 transition-colors"
+            className="rounded-full border border-border px-5 py-3 text-sm font-medium text-muted hover:text-foreground transition-colors"
           >
             Ver planes
           </Link>
         </div>
+
         <p className="pt-1 font-mono text-xs text-faint">
-          Gratis: comandos por voz y texto, «Oye Scorpk» y conectores. Pro: IA con lenguaje natural, chat con modelos y
-          visión de pantalla y cámara. Requiere Android 8.1 o superior.
+          Gratis: comandos locales, atajos, control de TV Samsung y conectores. Pro: conversación fluida con IA multimodal. Actualizaciones automáticas incluidas.
         </p>
       </section>
 
+      {/* Características Windows */}
       <section className="border-t border-border">
-        <div className="mx-auto grid max-w-5xl gap-px overflow-hidden bg-border sm:grid-cols-2">
-          {FEATURES.map((f) => (
-            <div key={f.title} className="bg-surface px-6 py-10 sm:px-10">
-              <h2 className="mb-2 font-mono text-[15px] font-semibold">{f.title}</h2>
+        <div className="mx-auto max-w-5xl px-6 pt-12 pb-4">
+          <p className="font-mono text-xs text-accent uppercase tracking-wider">Scorpk para Windows</p>
+          <h2 className="text-2xl font-semibold tracking-tight mt-1">Productividad y control desde tu escritorio</h2>
+        </div>
+        <div className="mx-auto grid max-w-5xl gap-px overflow-hidden bg-border sm:grid-cols-2 mt-4">
+          {WINDOWS_FEATURES.map((f) => (
+            <div key={f.title} className="bg-surface px-6 py-8 sm:px-10">
+              <h3 className="mb-2 font-mono text-[15px] font-semibold">{f.title}</h3>
               <p className="text-[15px] leading-relaxed text-muted">{f.body}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-6 py-16">
-        <h2 className="mb-6 font-mono text-[13px] uppercase tracking-wide text-muted">Cómo instalarla</h2>
-        <ol className="flex flex-col divide-y divide-border overflow-hidden rounded-xl border border-border">
-          {STEPS.map((step, index) => (
-            <li key={step} className="flex gap-4 px-5 py-4 text-[15px] leading-relaxed">
-              <span className="font-mono text-faint">{String(index + 1).padStart(2, "0")}</span>
-              <span className="text-muted">{step}</span>
-            </li>
+      {/* Características Android */}
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-5xl px-6 pt-12 pb-4">
+          <p className="font-mono text-xs text-accent uppercase tracking-wider">Scorpk para Android</p>
+          <h2 className="text-2xl font-semibold tracking-tight mt-1">El asistente siempre a tu lado</h2>
+        </div>
+        <div className="mx-auto grid max-w-5xl gap-px overflow-hidden bg-border sm:grid-cols-2 mt-4">
+          {ANDROID_FEATURES.map((f) => (
+            <div key={f.title} className="bg-surface px-6 py-8 sm:px-10">
+              <h3 className="mb-2 font-mono text-[15px] font-semibold">{f.title}</h3>
+              <p className="text-[15px] leading-relaxed text-muted">{f.body}</p>
+            </div>
           ))}
-        </ol>
-        <p className="mt-4 text-sm text-faint">
-          Si tu celular bloquea la instalación, casi siempre es Google Play Protect (o el Bloqueador automático en
-          Samsung): desactívalo un momento en Ajustes → Seguridad, instalá la app y volvelo a activar. Las versiones
-          siguientes se descargan e instalan desde la propia app.
-        </p>
-      </section>
-
-      <section className="border-t border-border bg-surface">
-        <div className="mx-auto max-w-3xl px-6 py-16">
-          <h2 className="mb-6 font-mono text-[13px] uppercase tracking-wide text-muted">Esta versión</h2>
-          <dl className="grid gap-px overflow-hidden rounded-xl border border-border bg-border text-sm sm:grid-cols-[180px_1fr]">
-            <dt className="bg-surface px-5 py-3 text-muted">Versión</dt>
-            <dd className="bg-surface px-5 py-3">
-              {latest.versionName} ({latest.versionCode})
-            </dd>
-            <dt className="bg-surface px-5 py-3 text-muted">Publicada</dt>
-            <dd className="bg-surface px-5 py-3">{formatDate(latest.releasedAt)}</dd>
-            <dt className="bg-surface px-5 py-3 text-muted">Tamaño</dt>
-            <dd className="bg-surface px-5 py-3">{formatSize(latest.sizeBytes)}</dd>
-            <dt className="bg-surface px-5 py-3 text-muted">SHA-256</dt>
-            <dd className="bg-surface px-5 py-3 font-mono text-[12px] break-all">{latest.sha256}</dd>
-          </dl>
-          <p className="mt-4 text-sm text-faint">
-            El SHA-256 permite comprobar que el archivo descargado es el oficial y no fue alterado.
-          </p>
-          {latest.notes.length > 0 && (
-            <>
-              <h3 className="mt-10 mb-3 font-mono text-[13px] uppercase tracking-wide text-muted">Novedades</h3>
-              <ul className="list-disc space-y-2 pl-5 text-[15px] text-muted marker:text-faint">
-                {latest.notes.map((note) => (
-                  <li key={note}>{note}</li>
-                ))}
-              </ul>
-            </>
-          )}
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 py-16 text-center">
+      {/* Ficha técnica de versiones */}
+      <section className="border-t border-border bg-surface">
+        <div className="mx-auto max-w-4xl px-6 py-16">
+          <h2 className="mb-6 font-mono text-[13px] uppercase tracking-wide text-muted">Últimas versiones publicadas</h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            {/* Tarjeta Windows */}
+            <div className="rounded-xl border border-border bg-surface-2 p-5 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between pb-3 border-b border-border">
+                  <span className="font-semibold flex items-center gap-2">🪟 Windows (x64)</span>
+                  <span className="font-mono text-xs text-accent">v{windowsLatest.version}</span>
+                </div>
+                <dl className="mt-4 space-y-2 text-xs">
+                  <div className="flex justify-between text-muted">
+                    <dt>Publicada:</dt>
+                    <dd>{formatDate(windowsLatest.releasedAt)}</dd>
+                  </div>
+                  <div className="flex justify-between text-muted">
+                    <dt>Tamaño:</dt>
+                    <dd>{formatSize(windowsLatest.sizeBytes)}</dd>
+                  </div>
+                  <div className="pt-2 text-muted">
+                    <dt className="mb-1 font-mono text-[10px]">SHA-256:</dt>
+                    <dd className="font-mono text-[11px] break-all bg-background/50 p-2 rounded">{windowsLatest.sha256}</dd>
+                  </div>
+                </dl>
+              </div>
+              <a
+                href={windowsLatest.downloadUrl}
+                className="mt-6 block text-center rounded-lg bg-foreground text-background py-2 text-xs font-semibold hover:opacity-90 transition-opacity"
+              >
+                Descargar instalador .exe
+              </a>
+            </div>
+
+            {/* Tarjeta Android */}
+            <div className="rounded-xl border border-border bg-surface-2 p-5 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between pb-3 border-b border-border">
+                  <span className="font-semibold flex items-center gap-2">📱 Android (APK)</span>
+                  <span className="font-mono text-xs text-accent">v{androidLatest.versionName}</span>
+                </div>
+                <dl className="mt-4 space-y-2 text-xs">
+                  <div className="flex justify-between text-muted">
+                    <dt>Publicada:</dt>
+                    <dd>{formatDate(androidLatest.releasedAt)}</dd>
+                  </div>
+                  <div className="flex justify-between text-muted">
+                    <dt>Tamaño:</dt>
+                    <dd>{formatSize(androidLatest.sizeBytes)}</dd>
+                  </div>
+                  <div className="pt-2 text-muted">
+                    <dt className="mb-1 font-mono text-[10px]">SHA-256:</dt>
+                    <dd className="font-mono text-[11px] break-all bg-background/50 p-2 rounded">{androidLatest.sha256}</dd>
+                  </div>
+                </dl>
+              </div>
+              <a
+                href={androidLatest.apkUrl}
+                className="mt-6 block text-center rounded-lg bg-foreground text-background py-2 text-xs font-semibold hover:opacity-90 transition-opacity"
+              >
+                Descargar APK
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-6 py-12 text-center">
         <p className="text-sm text-faint">
-          Al instalar y usar Scorpk Asistente aceptás los <Link href="/terms" className="text-muted underline underline-offset-4 hover:text-foreground">términos</Link> y la{" "}
+          Al instalar y usar Scorpk Asistente aceptas los <Link href="/terms" className="text-muted underline underline-offset-4 hover:text-foreground">términos</Link> y la{" "}
           <Link href="/privacy" className="text-muted underline underline-offset-4 hover:text-foreground">política de privacidad</Link>.
         </p>
       </section>
