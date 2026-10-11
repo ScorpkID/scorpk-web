@@ -33,39 +33,42 @@ export default function Home() {
       <section className="mx-auto flex max-w-5xl flex-col gap-6 px-6 pt-20 pb-16 sm:pt-28">
         <p className="font-mono text-[13px] tracking-wide text-accent uppercase">Agentes de IA</p>
         <h1 className="max-w-2xl text-4xl font-semibold leading-[1.1] tracking-tight text-balance sm:text-5xl">
-          IA que de verdad hace cosas: en tu código y en tu celular.
+          IA que de verdad hace cosas: en tu código, tu PC y tu celular.
         </h1>
         <p className="max-w-xl text-lg leading-relaxed text-muted">
           Scorpk lee y edita tu proyecto en VS Code o en la terminal, mostrándote cada cambio antes de aplicarlo. Y en
-          Android es un asistente de voz que abre apps, agenda, revisa tu correo y controla tu música. Con el
-          proveedor de IA que ya usás, o sin pegar ninguna key para arrancar.
+          Windows y Android es un asistente con atajos globales y voz que abre apps, controla tu música, maneja tu TV y te ayuda en tu día a día.
         </p>
         <div className="flex flex-wrap items-center gap-3 pt-2">
+          <Link
+            href="/assistant"
+            className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-ink hover:opacity-90 transition-opacity"
+          >
+            Descargar Asistente (PC & Android)
+          </Link>
           <a
             href="https://marketplace.visualstudio.com/items?itemName=ScorpkDev.scorpk-agent"
-            className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-ink hover:opacity-90 transition-opacity"
+            className="rounded-full border border-border-strong px-6 py-3 text-sm font-medium hover:bg-surface-2 transition-colors"
           >
             Instalar en VS Code
           </a>
-          <Link
-            href="/assistant"
-            className="rounded-full border border-border-strong px-6 py-3 text-sm font-medium hover:bg-surface-2 transition-colors"
-          >
-            Descargar para Android
-          </Link>
         </div>
         <p className="pt-1 font-mono text-xs text-faint">
           Disponible en{" "}
-          <a href="https://marketplace.visualstudio.com/items?itemName=ScorpkDev.scorpk-agent" className="text-muted hover:text-foreground transition-colors">
-            VS Code
-          </a>
+          <Link href="/assistant" className="text-muted hover:text-foreground transition-colors">
+            Windows
+          </Link>
           , en{" "}
-          <Link href="/cli" className="text-muted hover:text-foreground transition-colors">
-            la terminal
-          </Link>{" "}
-          y en{" "}
           <Link href="/assistant" className="text-muted hover:text-foreground transition-colors">
             Android
+          </Link>
+          , en{" "}
+          <a href="https://marketplace.visualstudio.com/items?itemName=ScorpkDev.scorpk-agent" className="text-muted hover:text-foreground transition-colors">
+            VS Code
+          </a>{" "}
+          y en{" "}
+          <Link href="/cli" className="text-muted hover:text-foreground transition-colors">
+            la terminal
           </Link>
           , misma cuenta y mismo plan.
         </p>
@@ -102,11 +105,11 @@ export default function Home() {
             <div className="flex flex-col rounded-xl border border-border p-6">
               <h3 className="mb-1 text-lg font-semibold">Scorpk Asistente</h3>
               <p className="mb-6 flex-1 text-[15px] leading-relaxed text-muted">
-                Tu asistente de voz en Android: «Oye Scorpk» desde cualquier pantalla, conectado a tu música,
-                agenda, correo y más. La app es gratis; la IA es parte de Pro.
+                Tu asistente personal para Windows y Android: atajo global Ctrl+Alt+Espacio, control de tu TV Samsung,
+                música, agenda y voz sin conexión. Gratis; IA con modelos en Pro.
               </p>
               <Link href="/assistant" className="text-sm font-medium text-accent hover:opacity-80 transition-opacity">
-                Descargar para Android →
+                Descargar para Windows y Android →
               </Link>
             </div>
           </div>
