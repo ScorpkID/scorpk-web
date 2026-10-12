@@ -3,8 +3,8 @@
   "versionCode": 10,
   "minSupportedVersion": "0.1.8",
   "downloadUrl": "https://github.com/ScorpkID/scorpk-web/releases/download/windows-v0.1.9/Scorpk_0.1.9_x64-setup.exe",
-  "sha256": "c711c426d921e45a76f88a6e5b052cbca29836516d48227c6e8aa6186b93822e",
-  "sizeBytes": 3764170,
+  "sha256": "d37a6465931e095cf69e89a4a5410b9b33d1d5693074e12b6d88f6b9fb86b517",
+  "sizeBytes": 3763338,
   "releasedAt": "2026-10-12",
   "notes": [
     "Integración dinámica completa de herramientas MCP (Filesystem, etc.) en el contexto de la IA",
