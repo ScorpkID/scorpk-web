@@ -1,12 +1,13 @@
 {
-  "version": "0.1.9",
-  "versionCode": 10,
+  "version": "0.1.10",
+  "versionCode": 11,
   "minSupportedVersion": "0.1.8",
-  "downloadUrl": "https://github.com/ScorpkID/scorpk-web/releases/download/windows-v0.1.9/Scorpk_0.1.9_x64-setup.exe",
-  "sha256": "d37a6465931e095cf69e89a4a5410b9b33d1d5693074e12b6d88f6b9fb86b517",
-  "sizeBytes": 3763338,
+  "downloadUrl": "https://github.com/ScorpkID/scorpk-web/releases/download/windows-v0.1.10/Scorpk_0.1.10_x64-setup.exe",
+  "sha256": "33e934a760925c8079d25fe4c13599869c20c97adacb4c68ff71ffc30bb48e2f",
+  "sizeBytes": 3765247,
   "releasedAt": "2026-10-12",
   "notes": [
+    "Soporte nativo de canalización npx/cmd.exe para herramientas MCP en Windows",
     "Integración dinámica completa de herramientas MCP (Filesystem, etc.) en el contexto de la IA",
     "Chat enriquecido interactivo con soporte completo para Markdown, tablas, listas y enlaces",
     "Bloques de código con encabezados de lenguaje y botón de copiado rápido con un clic",
