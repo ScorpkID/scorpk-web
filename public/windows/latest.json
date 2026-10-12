@@ -1,19 +1,19 @@
 {
-  "version": "0.1.4",
-  "versionCode": 5,
-  "minSupportedVersion": "0.1.4",
-  "downloadUrl": "https://github.com/ScorpkID/scorpk-web/releases/download/windows-v0.1.4/Scorpk_0.1.4_x64-setup.exe",
-  "sha256": "4a11ac27099990f8b17da7c81d7bfa0326f0554e48722dfa5fc9e6639f23b683",
-  "sizeBytes": 3671187,
+  "version": "0.1.5",
+  "versionCode": 6,
+  "minSupportedVersion": "0.1.5",
+  "downloadUrl": "https://github.com/ScorpkID/scorpk-web/releases/download/windows-v0.1.5/Scorpk_0.1.5_x64-setup.exe",
+  "sha256": "00179911d130bd2f5201e276150718e3308c4ec0030df9eebca1b7379545e676",
+  "sizeBytes": 3715387,
   "releasedAt": "2026-10-12",
   "notes": [
+    "Soporte completo MCP en dos direcciones: Servidor (Claude/Cursor) y Cliente (herramientas externas)",
+    "Corrección y soporte universal para formato de MAC address en TV Samsung",
     "Servidor nativo Model Context Protocol (MCP) integrado (--mcp-server)",
-    "Conexión con Claude Desktop, Cursor y agentes externos de IA",
     "Envío automático y directo a contactos de WhatsApp (con resolución de agenda telefónica)",
     "Búsqueda y reproducción automática directa en Spotify para celular",
     "Búsqueda y reproducción de video automática en YouTube para celular",
     "Actualizador nativo directo en la aplicación (sin salir al navegador)",
-    "Integración directa con Google ARTEMIS para tareas complejas en apps",
     "Control de televisor Samsung Tizen con Wake-on-LAN y WebSocket"
   ]
 }
