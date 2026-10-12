@@ -1,20 +1,16 @@
 {
-  "version": "0.1.11",
-  "versionCode": 12,
+  "version": "0.1.12",
+  "versionCode": 13,
   "minSupportedVersion": "0.1.8",
-  "downloadUrl": "https://github.com/ScorpkID/scorpk-web/releases/download/windows-v0.1.11/Scorpk_0.1.11_x64-setup.exe",
-  "sha256": "7cc5898696ea61a0ed7d1ab1d5e2961cfd806fd3a52be461759039e957291c34",
-  "sizeBytes": 3766797,
+  "downloadUrl": "https://github.com/ScorpkID/scorpk-web/releases/download/windows-v0.1.12/Scorpk_0.1.12_x64-setup.exe",
+  "sha256": "80b909b8cb3ed6472293c62269df0d0befb9fdb036799c1365d73106276de5e3",
+  "sizeBytes": 3767582,
   "releasedAt": "2026-10-12",
   "notes": [
-    "Enrutamiento inteligente de herramientas MCP para servidores múltiples (GitHub, Fetch, Filesystem, Memory)",
+    "Síntesis en lenguaje natural y formato Markdown para todas las herramientas MCP (sin JSONs crudos)",
+    "Integración de defuddle-stdio-mcp para extracción web limpia y lectura de URLs sin errores de canalización",
+    "Enrutamiento inteligente de herramientas MCP para múltiples servidores (GitHub, Fetch, Filesystem, Memory)",
     "System Prompt supremo con capacidades completas de programación, razonamiento y conversación natural",
-    "Resolución automática de URLs y consultas para herramientas externas",
-    "Soporte nativo de canalización npx/cmd.exe para MCP en Windows",
-    "Chat enriquecido interactivo con soporte completo para Markdown, tablas, listas y enlaces",
-    "Bloques de código con encabezados de lenguaje y botón de copiado rápido con un clic",
-    "Indicador de pensamiento animado con pulso y resplandor durante el procesamiento",
-    "Control de TV Samsung optimizado con apertura instantánea de apps y reproducción directa por DIAL",
-    "Actualizador nativo directo en la aplicación con verificación SHA256"
+    "Chat enriquecido interactivo con soporte completo para Markdown, tablas, listas y bloques de código con botón de copiado"
   ]
 }
