@@ -1,18 +1,17 @@
 {
-  "version": "0.1.8",
-  "versionCode": 9,
+  "version": "0.1.9",
+  "versionCode": 10,
   "minSupportedVersion": "0.1.8",
-  "downloadUrl": "https://github.com/ScorpkID/scorpk-web/releases/download/windows-v0.1.8/Scorpk_0.1.8_x64-setup.exe",
-  "sha256": "71c6dee41e8415303924aba1d096d153d531ab42e34ee21db759506ec3d9e7fd",
-  "sizeBytes": 3718792,
+  "downloadUrl": "https://github.com/ScorpkID/scorpk-web/releases/download/windows-v0.1.9/Scorpk_0.1.9_x64-setup.exe",
+  "sha256": "c711c426d921e45a76f88a6e5b052cbca29836516d48227c6e8aa6186b93822e",
+  "sizeBytes": 3764170,
   "releasedAt": "2026-10-12",
   "notes": [
-    "Reproducción directa garantizada en TV vía DIAL nativo de YouTube con resolución de videos",
-    "Búsqueda y reproducción automática directa en YouTube, Netflix y Spotify para TV",
-    "Apertura instantánea y garantizada de aplicaciones en TV Samsung (dual REST + WebSocket)",
-    "Integración completa de TV en el servidor MCP para agentes externos (Claude, Gemini Spark, etc.)",
-    "Servidor MCP vía HTTP/SSE en puerto 3005 para Gemini Spark y agentes web",
-    "Soporte completo MCP en dos direcciones: Servidor (Claude/Cursor) y Cliente (herramientas externas)",
-    "Actualizador nativo directo en la aplicación (sin salir al navegador)"
+    "Integración dinámica completa de herramientas MCP (Filesystem, etc.) en el contexto de la IA",
+    "Chat enriquecido interactivo con soporte completo para Markdown, tablas, listas y enlaces",
+    "Bloques de código con encabezados de lenguaje y botón de copiado rápido con un clic",
+    "Indicador de pensamiento animado con pulso y resplandor durante el procesamiento",
+    "Control de TV Samsung optimizado con apertura instantánea de apps y reproducción directa por DIAL",
+    "Actualizador nativo directo en la aplicación con verificación SHA256"
   ]
 }
