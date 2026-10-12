@@ -15,23 +15,14 @@ export async function Header() {
           <Image src="/logo.png" alt="" width={24} height={24} className="rounded-full" priority />
           Scorpk
         </Link>
-        <nav className="flex items-center gap-3 text-xs sm:gap-6 sm:text-sm">
+        <nav className="flex items-center gap-4 text-xs sm:gap-7 sm:text-sm">
           <Link href="/downloads" className="text-muted hover:text-foreground transition-colors font-medium">
             Descargas
           </Link>
-          <Link href="/assistant" className="text-muted hover:text-foreground transition-colors">
-            Asistente
+          <Link href="/docs" className="text-muted hover:text-foreground transition-colors font-medium">
+            Docs
           </Link>
-          <a
-            href="https://marketplace.visualstudio.com/items?itemName=ScorpkDev.scorpk-agent"
-            className="text-muted hover:text-foreground transition-colors"
-          >
-            Extensión
-          </a>
-          <Link href="/cli" className="text-muted hover:text-foreground transition-colors">
-            CLI
-          </Link>
-          <Link href="/pricing" className="text-muted hover:text-foreground transition-colors">
+          <Link href="/pricing" className="text-muted hover:text-foreground transition-colors font-medium">
             Precios
           </Link>
           {user ? (

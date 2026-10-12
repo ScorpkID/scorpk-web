@@ -6,6 +6,12 @@ export function Footer() {
       <div className="mx-auto flex max-w-5xl flex-col gap-3 px-6 py-8 text-sm text-faint sm:flex-row sm:items-center sm:justify-between">
         <span>Scorpk — agentes de IA en tu editor, tu terminal y tu celular.</span>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+          <Link href="/downloads" className="hover:text-muted transition-colors">
+            descargas
+          </Link>
+          <Link href="/docs" className="hover:text-muted transition-colors">
+            docs
+          </Link>
           <a href="https://github.com/ScorpkID/scorpk" className="hover:text-muted transition-colors">
             extensión
           </a>
