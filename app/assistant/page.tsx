@@ -79,7 +79,6 @@ export default function AssistantPage() {
             href={windowsLatest.downloadUrl}
             className="flex items-center gap-2.5 rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-accent-ink hover:opacity-90 transition-opacity shadow-lg shadow-accent/20"
           >
-            <span>🪟</span>
             <span>Descargar para Windows · v{windowsLatest.version} ({formatSize(windowsLatest.sizeBytes)})</span>
           </a>
 
@@ -87,15 +86,14 @@ export default function AssistantPage() {
             href={androidLatest.apkUrl}
             className="flex items-center gap-2.5 rounded-full border border-border-strong bg-surface px-6 py-3.5 text-sm font-semibold hover:bg-surface-2 transition-colors"
           >
-            <span>📱</span>
             <span>Descargar APK Android · v{androidLatest.versionName} ({formatSize(androidLatest.sizeBytes)})</span>
           </a>
 
           <Link
-            href="/pricing"
+            href="/downloads"
             className="rounded-full border border-border px-5 py-3 text-sm font-medium text-muted hover:text-foreground transition-colors"
           >
-            Ver planes
+            Ver todas las descargas
           </Link>
         </div>
 
@@ -145,7 +143,7 @@ export default function AssistantPage() {
             <div className="rounded-xl border border-border bg-surface-2 p-5 flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between pb-3 border-b border-border">
-                  <span className="font-semibold flex items-center gap-2">🪟 Windows (x64)</span>
+                  <span className="font-semibold flex items-center gap-2">Windows (x64)</span>
                   <span className="font-mono text-xs text-accent">v{windowsLatest.version}</span>
                 </div>
                 <dl className="mt-4 space-y-2 text-xs">
@@ -175,7 +173,7 @@ export default function AssistantPage() {
             <div className="rounded-xl border border-border bg-surface-2 p-5 flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between pb-3 border-b border-border">
-                  <span className="font-semibold flex items-center gap-2">📱 Android (APK)</span>
+                  <span className="font-semibold flex items-center gap-2">Android (APK)</span>
                   <span className="font-mono text-xs text-accent">v{androidLatest.versionName}</span>
                 </div>
                 <dl className="mt-4 space-y-2 text-xs">

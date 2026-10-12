@@ -41,10 +41,10 @@ export default function Home() {
         </p>
         <div className="flex flex-wrap items-center gap-3 pt-2">
           <Link
-            href="/assistant"
+            href="/downloads"
             className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-ink hover:opacity-90 transition-opacity"
           >
-            Descargar Asistente (PC & Android)
+            Descargar Scorpk
           </Link>
           <a
             href="https://marketplace.visualstudio.com/items?itemName=ScorpkDev.scorpk-agent"
@@ -55,11 +55,11 @@ export default function Home() {
         </div>
         <p className="pt-1 font-mono text-xs text-faint">
           Disponible en{" "}
-          <Link href="/assistant" className="text-muted hover:text-foreground transition-colors">
+          <Link href="/downloads" className="text-muted hover:text-foreground transition-colors">
             Windows
           </Link>
           , en{" "}
-          <Link href="/assistant" className="text-muted hover:text-foreground transition-colors">
+          <Link href="/downloads" className="text-muted hover:text-foreground transition-colors">
             Android
           </Link>
           , en{" "}

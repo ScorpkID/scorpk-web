@@ -16,15 +16,18 @@ export async function Header() {
           Scorpk
         </Link>
         <nav className="flex items-center gap-3 text-xs sm:gap-6 sm:text-sm">
+          <Link href="/downloads" className="text-muted hover:text-foreground transition-colors font-medium">
+            Descargas
+          </Link>
+          <Link href="/assistant" className="text-muted hover:text-foreground transition-colors">
+            Asistente
+          </Link>
           <a
             href="https://marketplace.visualstudio.com/items?itemName=ScorpkDev.scorpk-agent"
             className="text-muted hover:text-foreground transition-colors"
           >
             Extensión
           </a>
-          <Link href="/assistant" className="text-muted hover:text-foreground transition-colors">
-            Asistente
-          </Link>
           <Link href="/cli" className="text-muted hover:text-foreground transition-colors">
             CLI
           </Link>
