@@ -1,14 +1,16 @@
 {
-  "version": "0.1.2",
-  "versionCode": 3,
-  "minSupportedVersion": "0.1.2",
-  "downloadUrl": "https://github.com/ScorpkID/scorpk-web/releases/download/windows-v0.1.2/Scorpk_0.1.2_x64-setup.exe",
-  "sha256": "c3bafd94c7cdfe33cdd06cc77f5369a645d09ca309472a2aed6932879f8b3c99",
-  "sizeBytes": 3643094,
+  "version": "0.1.3",
+  "versionCode": 4,
+  "minSupportedVersion": "0.1.3",
+  "downloadUrl": "https://github.com/ScorpkID/scorpk-web/releases/download/windows-v0.1.3/Scorpk_0.1.3_x64-setup.exe",
+  "sha256": "4da4f3d57bd7316f41c5c32c7d220c00b9528514d2ed1dfc67ff1f107fa6b5ac",
+  "sizeBytes": 3646368,
   "releasedAt": "2026-10-11",
   "notes": [
+    "Envío automático y directo a contactos de WhatsApp (con resolución de agenda telefónica)",
+    "Búsqueda y reproducción automática directa en Spotify para celular",
+    "Búsqueda y reproducción de video automática en YouTube para celular",
     "Actualizador nativo directo en la aplicación (sin salir al navegador)",
-    "Automatización profunda de Android: búsqueda y reproducción directa en Spotify, mensajes de WhatsApp y YouTube",
     "Integración directa con Google ARTEMIS para tareas complejas en apps",
     "Control de televisor Samsung Tizen con Wake-on-LAN y WebSocket",
     "Sistema de actualizaciones automáticas obligatorias (UpdateGate)"
