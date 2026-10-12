@@ -1,18 +1,18 @@
 {
-  "version": "0.1.7",
-  "versionCode": 8,
-  "minSupportedVersion": "0.1.7",
-  "downloadUrl": "https://github.com/ScorpkID/scorpk-web/releases/download/windows-v0.1.7/Scorpk_0.1.7_x64-setup.exe",
-  "sha256": "1f1ef4f3148af6e2f3d1764d8ef78537447a091b12c87c3526dbd987e3461dab",
-  "sizeBytes": 3719743,
+  "version": "0.1.8",
+  "versionCode": 9,
+  "minSupportedVersion": "0.1.8",
+  "downloadUrl": "https://github.com/ScorpkID/scorpk-web/releases/download/windows-v0.1.8/Scorpk_0.1.8_x64-setup.exe",
+  "sha256": "71c6dee41e8415303924aba1d096d153d531ab42e34ee21db759506ec3d9e7fd",
+  "sizeBytes": 3718792,
   "releasedAt": "2026-10-12",
   "notes": [
-    "Apertura instantánea y garantizada de aplicaciones en TV Samsung (dual REST + WebSocket)",
+    "Reproducción directa garantizada en TV vía DIAL nativo de YouTube con resolución de videos",
     "Búsqueda y reproducción automática directa en YouTube, Netflix y Spotify para TV",
+    "Apertura instantánea y garantizada de aplicaciones en TV Samsung (dual REST + WebSocket)",
     "Integración completa de TV en el servidor MCP para agentes externos (Claude, Gemini Spark, etc.)",
     "Servidor MCP vía HTTP/SSE en puerto 3005 para Gemini Spark y agentes web",
     "Soporte completo MCP en dos direcciones: Servidor (Claude/Cursor) y Cliente (herramientas externas)",
-    "Envío automático y directo a contactos de WhatsApp (con resolución de agenda telefónica)",
     "Actualizador nativo directo en la aplicación (sin salir al navegador)"
   ]
 }
