@@ -1,19 +1,19 @@
 {
-  "version": "0.1.5",
-  "versionCode": 6,
-  "minSupportedVersion": "0.1.5",
-  "downloadUrl": "https://github.com/ScorpkID/scorpk-web/releases/download/windows-v0.1.5/Scorpk_0.1.5_x64-setup.exe",
-  "sha256": "00179911d130bd2f5201e276150718e3308c4ec0030df9eebca1b7379545e676",
-  "sizeBytes": 3715387,
+  "version": "0.1.6",
+  "versionCode": 7,
+  "minSupportedVersion": "0.1.6",
+  "downloadUrl": "https://github.com/ScorpkID/scorpk-web/releases/download/windows-v0.1.6/Scorpk_0.1.6_x64-setup.exe",
+  "sha256": "0b4ed34a6bc798e11d362ee691e5265d8904bb7a06412ccb86575103150323d4",
+  "sizeBytes": 3717725,
   "releasedAt": "2026-10-12",
   "notes": [
+    "Servidor MCP vía HTTP/SSE en puerto 3005 para Gemini Spark y agentes web",
+    "Soporte para túnel HTTPS seguro vía ngrok para conectar con Google Gemini Spark",
     "Soporte completo MCP en dos direcciones: Servidor (Claude/Cursor) y Cliente (herramientas externas)",
     "Corrección y soporte universal para formato de MAC address en TV Samsung",
-    "Servidor nativo Model Context Protocol (MCP) integrado (--mcp-server)",
     "Envío automático y directo a contactos de WhatsApp (con resolución de agenda telefónica)",
     "Búsqueda y reproducción automática directa en Spotify para celular",
     "Búsqueda y reproducción de video automática en YouTube para celular",
-    "Actualizador nativo directo en la aplicación (sin salir al navegador)",
-    "Control de televisor Samsung Tizen con Wake-on-LAN y WebSocket"
+    "Actualizador nativo directo en la aplicación (sin salir al navegador)"
   ]
 }
