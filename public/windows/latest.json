@@ -3,13 +3,14 @@
   "versionCode": 1,
   "minSupportedVersion": "0.1.0",
   "downloadUrl": "https://github.com/ScorpkID/scorpk-web/releases/download/windows-v0.1.0/Scorpk_0.1.0_x64-setup.exe",
-  "sha256": "dd429512fd4d53ecaea029e41ebfe430303a7befcf5cb1ee1621c64aebb4eeaf",
-  "sizeBytes": 3608850,
+  "sha256": "256a0b07ce36413b9542916fe103eabb142595251ada41f5ac09255b7c5ffd84",
+  "sizeBytes": 3628826,
   "releasedAt": "2026-10-11",
   "notes": [
     "Primera versión oficial de Scorpk para Windows",
     "Asistente de IA y chat flotante con atajo global Ctrl+Alt+Espacio",
     "Control completo de televisores Samsung (Tizen) vía Wake-on-LAN y WebSocket",
+    "Integración de Google ARTEMIS y ADB para control y automatización de tu celular Android",
     "Control de volumen, apps del PC, multimedia y temporizadores",
     "Reconocimiento de voz sin conexión con modelo en español",
     "Comprobación de actualizaciones automáticas (UpdateGate)"
