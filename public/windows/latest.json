@@ -1,19 +1,18 @@
 {
-  "version": "0.1.6",
-  "versionCode": 7,
-  "minSupportedVersion": "0.1.6",
-  "downloadUrl": "https://github.com/ScorpkID/scorpk-web/releases/download/windows-v0.1.6/Scorpk_0.1.6_x64-setup.exe",
-  "sha256": "0b4ed34a6bc798e11d362ee691e5265d8904bb7a06412ccb86575103150323d4",
-  "sizeBytes": 3717725,
+  "version": "0.1.7",
+  "versionCode": 8,
+  "minSupportedVersion": "0.1.7",
+  "downloadUrl": "https://github.com/ScorpkID/scorpk-web/releases/download/windows-v0.1.7/Scorpk_0.1.7_x64-setup.exe",
+  "sha256": "1f1ef4f3148af6e2f3d1764d8ef78537447a091b12c87c3526dbd987e3461dab",
+  "sizeBytes": 3719743,
   "releasedAt": "2026-10-12",
   "notes": [
+    "Apertura instantánea y garantizada de aplicaciones en TV Samsung (dual REST + WebSocket)",
+    "Búsqueda y reproducción automática directa en YouTube, Netflix y Spotify para TV",
+    "Integración completa de TV en el servidor MCP para agentes externos (Claude, Gemini Spark, etc.)",
     "Servidor MCP vía HTTP/SSE en puerto 3005 para Gemini Spark y agentes web",
-    "Soporte para túnel HTTPS seguro vía ngrok para conectar con Google Gemini Spark",
     "Soporte completo MCP en dos direcciones: Servidor (Claude/Cursor) y Cliente (herramientas externas)",
-    "Corrección y soporte universal para formato de MAC address en TV Samsung",
     "Envío automático y directo a contactos de WhatsApp (con resolución de agenda telefónica)",
-    "Búsqueda y reproducción automática directa en Spotify para celular",
-    "Búsqueda y reproducción de video automática en YouTube para celular",
     "Actualizador nativo directo en la aplicación (sin salir al navegador)"
   ]
 }
